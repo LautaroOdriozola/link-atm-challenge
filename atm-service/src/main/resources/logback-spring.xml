@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <springProperty scope="context" name="transactionLogPath"
+                     source="atm.transaction-log.path" defaultValue="logs/transactions.log"/>
+
+    <appender name="TRANSACTION_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>${transactionLogPath}</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="TRANSACTION_LOG" level="INFO" additivity="false">
+        <appender-ref ref="TRANSACTION_LOG"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

@@ -1,0 +1,17 @@
+{
+  "name": "atm-console",
+  "version": "1.0.0",
+  "description": "Aplicacion de consola del Producto ATM que consume el microservicio atm-service por HTTP",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "src/cli.js",
+  "bin": {
+    "atm": "bin/atm.js"
+  },
+  "scripts": {
+    "start": "node bin/atm.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
